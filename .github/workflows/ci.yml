@@ -1,0 +1,42 @@
+
+name: Continuous Integration
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+# Verhindert, dass alte, noch laufende Builds unnötig Ressourcen verbrauchen
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check-and-test:
+    name: Build & Test
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Code auschecken
+      uses: actions/checkout@v4
+
+    - name: Rust Toolchain installieren
+      uses: dtolnay/rust-toolchain@stable
+      with:
+        components: clippy, rustfmt
+
+    - name: Rust Cache aktivieren
+      uses: swatinem/rust-cache@v2
+
+    - name: Code-Formatierung prüfen
+      run: cargo fmt --check
+
+    - name: Code kompilieren (Check)
+      run: cargo check --all-targets
+
+    - name: Linter ausführen (Clippy)
+      run: cargo clippy --all-targets -- -D warnings
+
+    - name: Tests ausführen
+      run: cargo test --all-targets

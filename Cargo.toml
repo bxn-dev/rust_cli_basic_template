@@ -1,0 +1,35 @@
+
+[package]
+name = "mein-cli-template"
+version = "0.1.0"
+edition = "2024" # Nutze die aktuelle Version für moderne Features
+
+[dependencies]
+# CLI Parsing & Argumente
+clap = { version = "4.5", features = ["derive", "env", "cargo"] }
+
+# Fehlerbehandlung
+anyhow = "1.0"
+thiserror = "2.0"
+
+# UI, Farben & Terminal-UX
+indicatif = "0.17"
+dialoguer = "0.11"
+anstream = "0.6"
+
+# Konfiguration & Datenverarbeitung
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+directories = "5.0"
+
+# Strukturiertes Logging
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+# Optimierungen für eine winzige und extrem schnelle CLI-Binärdatei
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true
+

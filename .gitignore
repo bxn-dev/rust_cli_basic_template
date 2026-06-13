@@ -1,0 +1,11 @@
+
+# Build-Verzeichnis von Rust
+/target/
+
+# Cargo Sperrdatei für Templates ignorieren
+Cargo.lock
+
+# Temporäre Dateien von IDEs & Editoren
+.idea/
+.vscode/
+*.rs.bk
