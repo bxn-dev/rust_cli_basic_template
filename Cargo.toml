@@ -20,7 +20,7 @@ anstream = "0.6"
 # Konfiguration & Datenverarbeitung
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
-directories = "5.0"
+directories = "6.0"
 
 # Strukturiertes Logging
 tracing = "0.1"
