@@ -13,14 +13,14 @@ anyhow = "1.0"
 thiserror = "2.0"
 
 # UI, Farben & Terminal-UX
-indicatif = "0.17"
 dialoguer = "0.12"
+indicatif = "0.18"
 anstream = "1.0"
 
 # Konfiguration & Datenverarbeitung
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
-directories = "5.0"
+directories = "6.0"
 
 # Strukturiertes Logging
 tracing = "0.1"
