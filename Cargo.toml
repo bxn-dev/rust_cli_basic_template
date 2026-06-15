@@ -15,7 +15,7 @@ thiserror = "2.0"
 # UI, Farben & Terminal-UX
 indicatif = "0.17"
 dialoguer = "0.11"
-anstream = "0.6"
+anstream = "1.0"
 
 # Konfiguration & Datenverarbeitung
 serde = { version = "1.0", features = ["derive"] }
